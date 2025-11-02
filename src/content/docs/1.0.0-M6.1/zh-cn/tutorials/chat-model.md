@@ -36,7 +36,7 @@ public class ChatModelController {
 	@RequestMapping("/chat")
 	public String chat(String input) {
 		ChatResponse response = chatModel.call(new Prompt(input));
-		return response.getResult().getOutput().getContent();
+		return response.getResult().getOutput().getText();
 	}
 }
 ```
@@ -47,7 +47,7 @@ public class ChatModelController {
 public String chatWithPrompt(String input) {
     Prompt prompt = new Prompt(input);
     ChatResponse response = chatModel.call(prompt);
-    return response.getResult().getOutput().getContent();
+    return response.getResult().getOutput().getText();
 }
 ```
 
@@ -93,7 +93,7 @@ public String chatWithOptions(String input) {
             .build();
     Prompt prompt = new Prompt(input, options);
     ChatResponse response = chatModel.call(prompt);
-    return response.getResult().getOutput().getContent();
+    return response.getResult().getOutput().getText();
 }
 ```
 
